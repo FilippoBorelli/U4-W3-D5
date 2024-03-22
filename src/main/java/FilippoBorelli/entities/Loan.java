@@ -12,6 +12,9 @@ public class Loan {
     @GeneratedValue
     private long id;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "item_id")
@@ -42,7 +45,7 @@ public class Loan {
         this.loanEnd = loanStart.plusDays(30);
         this.returnDate = returnDate;
     }
-    
+
     public long getId() {
         return id;
     }
